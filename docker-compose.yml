@@ -1,0 +1,24 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    container_name: blog_postgresql
+    env_file:
+      - .env
+    volumes:
+      - blog_postgresql:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - blog_network
+
+volumes:
+  blog_postgresql:
+    external: true
+networks:
+  blog_network:
+    external: true
