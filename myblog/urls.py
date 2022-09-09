@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),  # http://localhost
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', include('blog.urls')),
 
 ]
